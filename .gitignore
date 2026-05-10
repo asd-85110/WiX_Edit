@@ -1,0 +1,5 @@
+*.SAVE
+*.DEPEND
+WiX_Edit_build_log.html
+obj/
+bin/
