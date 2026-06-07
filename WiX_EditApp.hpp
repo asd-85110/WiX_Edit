@@ -12,7 +12,10 @@
 
 #include <wx/app.h>
 #include <wx/xml/xml.h>
-///\brief 定义了WiX_EditApp类
+#include <wx/textfile.h>
+#include <wx/filedlg.h>
+#include <wx/msgdlg.h>
+/// \brief 定义了WiX_EditApp类
 ///有成员函数Oninit
 class WiX_EditApp : public wxApp
 {

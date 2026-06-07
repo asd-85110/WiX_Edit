@@ -1,4 +1,4 @@
-aaaa ICON "favicon.ico"
+100 ICON "favicon.ico"
 
 #define wxUSE_NO_MANIFEST         0
 #define wxUSE_DPI_AWARE_MANIFEST  2

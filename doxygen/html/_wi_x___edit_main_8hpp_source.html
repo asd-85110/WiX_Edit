@@ -106,31 +106,53 @@ $(function(){initNavTree('_wi_x___edit_main_8hpp_source.html','',''); });
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#ifndef WIX_EDITMAIN_H</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#define WIX_EDITMAIN_H</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define VERSION &quot;1.0.0.1&quot;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#ifndef WX_PRECOMP</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">    #include &lt;wx/wx.h&gt;</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">    #include &lt;wx/stc/stc.h&gt;</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">    #include &lt;wx/webview.h&gt;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">    #include &lt;wx/aui/aui.h&gt;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;WiX_EditApp.hpp&quot;</span></div>
-<div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_wi_x___edit_frame.html">   29</a></span><span class="keyword">class </span><a class="code hl_function" href="class_wi_x___edit_frame.html#a232a841aa270dfeef91ca44cb41ba46e">WiX_EditFrame</a>: <span class="keyword">public</span> wxFrame</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>{</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <a class="code hl_function" href="class_wi_x___edit_frame.html#a232a841aa270dfeef91ca44cb41ba46e">WiX_EditFrame</a>();</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <a class="code hl_function" href="class_wi_x___edit_frame.html#a90e891eddea9b270b8f6bbdf5216bee8">~WiX_EditFrame</a>();</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        wxAuiManager WiX_Edit_Mgr;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        wxStyledTextCtrl* Editor=<span class="keyword">new</span> wxStyledTextCtrl(<span class="keyword">this</span>,wxID_ANY);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>};</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">    #include &lt;wx/wx.h&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">    #include &lt;wx/stc/stc.h&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">    #include &lt;wx/webview.h&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">    #include &lt;wx/aui/aui.h&gt;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">    #include &lt;wx/treectrl.h&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">    #include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;WiX_EditApp.hpp&quot;</span></div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_wi_x___edit_frame.html">   32</a></span><span class="keyword">class </span><a class="code hl_function" href="class_wi_x___edit_frame.html#a232a841aa270dfeef91ca44cb41ba46e">WiX_EditFrame</a>: <span class="keyword">public</span> wxFrame</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>{</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <a class="code hl_function" href="class_wi_x___edit_frame.html#a232a841aa270dfeef91ca44cb41ba46e">WiX_EditFrame</a>();</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <a class="code hl_function" href="class_wi_x___edit_frame.html#a90e891eddea9b270b8f6bbdf5216bee8">~WiX_EditFrame</a>();</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keywordtype">void</span> OnChar(wxStyledTextEvent&amp;);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keywordtype">void</span> OnQuit(wxCommandEvent&amp;);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keywordtype">void</span> ShowAbout(wxCommandEvent&amp;);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        wxAuiManager WiX_Edit_Mgr;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        wxStyledTextCtrl* Editor=<span class="keyword">new</span> wxStyledTextCtrl(<span class="keyword">this</span>,wxID_ANY);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        wxTreeCtrl* FileList=<span class="keyword">new</span> wxTreeCtrl(<span class="keyword">this</span>,wxID_ANY);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        wxMenuBar* Menu=<span class="keyword">new</span> wxMenuBar();</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        std::vector&lt;wxMenu*&gt; Menus;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        wxString FilePath;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>};</div>
 </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#endif </span><span class="comment">// WIX_EDITMAIN_H</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span></div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="};">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="class_about_dlg.html">   49</a></span><span class="keyword">class </span><a class="code hl_function" href="class_about_dlg.html#af109e982005bbd541ee3b24b5f884383">AboutDlg</a>:<span class="keyword">public</span> wxDialog</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>{</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_function" href="class_about_dlg.html#af109e982005bbd541ee3b24b5f884383">AboutDlg</a>(<a class="code hl_class" href="class_wi_x___edit_frame.html">WiX_EditFrame</a>* WND);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_function" href="class_about_dlg.html#af109e982005bbd541ee3b24b5f884383">~AboutDlg</a>()=<span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">void</span> Ok_Click(wxCommandEvent&amp;);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    wxBoxSizer* DlgSizer=<span class="keyword">new</span> wxBoxSizer(wxVERTICAL);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    wxButton *OK_Key;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>};</div>
+</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#endif </span><span class="comment">// WIX_EDITMAIN_H</span></div>
+<div class="ttc" id="aclass_about_dlg_html_af109e982005bbd541ee3b24b5f884383"><div class="ttname"><a href="class_about_dlg.html#af109e982005bbd541ee3b24b5f884383">AboutDlg::AboutDlg</a></div><div class="ttdeci">AboutDlg(WiX_EditFrame *WND)</div><div class="ttdoc">&quot;关于&quot;对话框的构造函数实现</div><div class="ttdef"><b>定义</b> WiX_EditMain.cpp:289</div></div>
+<div class="ttc" id="aclass_wi_x___edit_frame_html"><div class="ttname"><a href="class_wi_x___edit_frame.html">WiX_EditFrame</a></div><div class="ttdoc">这里是一些必要的头文件</div><div class="ttdef"><b>定义</b> WiX_EditMain.hpp:33</div></div>
 <div class="ttc" id="aclass_wi_x___edit_frame_html_a232a841aa270dfeef91ca44cb41ba46e"><div class="ttname"><a href="class_wi_x___edit_frame.html#a232a841aa270dfeef91ca44cb41ba46e">WiX_EditFrame::WiX_EditFrame</a></div><div class="ttdeci">WiX_EditFrame()</div><div class="ttdoc">这里初始化了主窗口</div><div class="ttdef"><b>定义</b> WiX_EditMain.cpp:19</div></div>
-<div class="ttc" id="aclass_wi_x___edit_frame_html_a90e891eddea9b270b8f6bbdf5216bee8"><div class="ttname"><a href="class_wi_x___edit_frame.html#a90e891eddea9b270b8f6bbdf5216bee8">WiX_EditFrame::~WiX_EditFrame</a></div><div class="ttdeci">~WiX_EditFrame()</div><div class="ttdoc">卸载了Aui管理器</div><div class="ttdef"><b>定义</b> WiX_EditMain.cpp:38</div></div>
+<div class="ttc" id="aclass_wi_x___edit_frame_html_a90e891eddea9b270b8f6bbdf5216bee8"><div class="ttname"><a href="class_wi_x___edit_frame.html#a90e891eddea9b270b8f6bbdf5216bee8">WiX_EditFrame::~WiX_EditFrame</a></div><div class="ttdeci">~WiX_EditFrame()</div><div class="ttdoc">卸载了Aui管理器</div><div class="ttdef"><b>定义</b> WiX_EditMain.cpp:147</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

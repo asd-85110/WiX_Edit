@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['oninit_0',['OnInit',['../class_wi_x___edit_app.html#a4281991102e6e373fd686b76201169ad',1,'WiX_EditApp']]]
+  ['aboutdlg_0',['AboutDlg',['../class_about_dlg.html#af109e982005bbd541ee3b24b5f884383',1,'AboutDlg']]]
 ];
