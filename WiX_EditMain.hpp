@@ -9,7 +9,7 @@
 
 #ifndef WIX_EDITMAIN_H
 #define WIX_EDITMAIN_H
-#define VERSION "1.0.0.1"
+#define VERSION "1.0.1.1"
 #ifndef WX_PRECOMP
 /**
  \brief 这里是一些必要的头文件
@@ -40,7 +40,8 @@ class WiX_EditFrame: public wxFrame
         void ShowAbout(wxCommandEvent&);
         wxAuiManager WiX_Edit_Mgr;
         wxStyledTextCtrl* Editor=new wxStyledTextCtrl(this,wxID_ANY);
-        wxTreeCtrl* FileList=new wxTreeCtrl(this,wxID_ANY);
+        wxTextCtrl* LogPane=new wxTextCtrl(this,wxID_ANY);
+        wxTreeCtrl *FileList=new wxTreeCtrl(this,wxID_ANY),*OutlineList=new wxTreeCtrl(this,wxID_ANY);
         wxMenuBar* Menu=new wxMenuBar();
         std::vector<wxMenu*> Menus;
         wxString FilePath;
@@ -53,7 +54,8 @@ public:
     ~AboutDlg()=default;
 private:
     void Ok_Click(wxCommandEvent&);
-    wxBoxSizer* DlgSizer=new wxBoxSizer(wxVERTICAL);
+    wxBitmap WiX_Edit_ICO,wxWidgetsStd_ICO;
+    wxBoxSizer *DlgSizer=new wxBoxSizer(wxVERTICAL),*BmpSizer=new wxBoxSizer(wxHORIZONTAL);
     wxButton *OK_Key;
 };
 #endif // WIX_EDITMAIN_H

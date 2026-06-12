@@ -18,7 +18,7 @@
 */
 WiX_EditFrame::WiX_EditFrame():wxFrame(nullptr,wxID_ANY,"WiX_Edit",wxDefaultPosition,wxSize(1200,800))
 {
-    ///初始化Aui管理器
+    ///\brief 添加菜单
     Menus.push_back(new wxMenu());
     Menus[0]->Append(wxID_NEW,L"New\tCtrl+N");
     Menus[0]->AppendSeparator();
@@ -34,6 +34,7 @@ WiX_EditFrame::WiX_EditFrame():wxFrame(nullptr,wxID_ANY,"WiX_Edit",wxDefaultPosi
     Bind(wxEVT_MENU,&OnQuit,this,wxID_EXIT);
     Bind(wxEVT_MENU,&ShowAbout,this,wxID_ABOUT);
     SetMenuBar(Menu);
+    ///初始化Aui管理器
     WiX_Edit_Mgr.SetManagedWindow(this);
     WiX_Edit_Mgr.SetFlags(wxAUI_MGR_DEFAULT);
     ///设置编辑器属性
@@ -136,8 +137,10 @@ WiX_EditFrame::WiX_EditFrame():wxFrame(nullptr,wxID_ANY,"WiX_Edit",wxDefaultPosi
     Editor->SetSelBackground(true, wxColour(0, 0, 255));
     Editor->SetCaretForeground(wxColour(0, 0, 0));
     ///添加面板
-    WiX_Edit_Mgr.AddPane(Editor,wxAuiPaneInfo().CenterPane().Name(wxString(L"Editor")));
-    WiX_Edit_Mgr.AddPane(FileList,wxAuiPaneInfo().Left().Caption(L"Files").Name(L"File").BestSize(wxSize(300,800)));
+    WiX_Edit_Mgr.AddPane(Editor,wxAuiPaneInfo().CenterPane().Name(L"Editor"));
+    WiX_Edit_Mgr.AddPane(FileList,wxAuiPaneInfo().Left().Caption(L"Files").Name(L"File").BestSize(wxSize(200,700)));
+    WiX_Edit_Mgr.AddPane(OutlineList,wxAuiPaneInfo().Right().Caption(L"Outline").Name(L"Outline").BestSize(wxSize(200,700)));
+    WiX_Edit_Mgr.AddPane(LogPane,wxAuiPaneInfo().Bottom().Caption(L"Logs").Name(L"Log").BestSize(wxSize(1200,150)));
     WiX_Edit_Mgr.Update();
 }
 /**
@@ -303,8 +306,14 @@ void WiX_EditFrame::ShowAbout(wxCommandEvent& event){
  \brief "关于"对话框的构造函数实现
  \note 实现一些文本以及一个按钮
 */
-AboutDlg::AboutDlg(WiX_EditFrame* WND):wxDialog(WND,wxID_ANY,L"About",wxDefaultPosition,wxSize(300,200)){
+AboutDlg::AboutDlg(WiX_EditFrame* WND):wxDialog(WND,wxID_ANY,L"About",wxDefaultPosition,wxSize(400,300)),
+                WiX_Edit_ICO(wxICON(IDI_MAINICON)),
+                wxWidgetsStd_ICO(wxICON(WXICON_AAA)){
     OK_Key=new wxButton(this,wxID_OK,L"OK");
+    BmpSizer->Add(new wxStaticBitmap(this,wxID_ANY,WiX_Edit_ICO),0,wxRIGHT|wxLEFT,2);
+    BmpSizer->AddStretchSpacer(1);
+    BmpSizer->Add(new wxStaticBitmap(this,wxID_ANY,wxWidgetsStd_ICO),0,wxLEFT|wxRIGHT,2);
+    DlgSizer->Add(BmpSizer,0,wxALIGN_CENTER|wxALL,5);
     DlgSizer->Add(new wxStaticText(this,wxID_ANY,L"WiX_Edit"),0,wxALIGN_CENTER|wxALL,5);
     DlgSizer->Add(new wxStaticText(this,wxID_ANY,L"Author:(C)asd-85110"),0,wxALIGN_CENTER|wxALL,5);
     DlgSizer->Add(new wxStaticText(this,wxID_ANY,wxString::Format(L"Version:%s",VERSION)),0,wxALIGN_CENTER|wxALL,5);

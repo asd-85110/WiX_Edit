@@ -24,7 +24,7 @@ bool WiX_EditApp::OnInit()
     /// \brief 创建窗口
     WiX_EditFrame* frame = new WiX_EditFrame();
     /// \brief 设置图标
-    frame->SetIcon(wxICON("100")); // To Set App Icon
+    frame->SetIcon(wxICON(IDI_MAINICON)); // To Set App Icon
     /// \brief 设置最小尺寸
     frame->SetMinSize(wxSize(400,300));
     /// \brief 显示窗口

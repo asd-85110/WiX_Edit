@@ -1,2 +1,2 @@
-D:/CBprojects/WiX_Edit/WiX_EditMain.cpp:138:warning: found documented return type for WiX_EditFrame::WiX_EditFrame that does not return anything
-D:/CBprojects/WiX_Edit/WiX_EditMain.cpp:145:warning: found documented return type for WiX_EditFrame::~WiX_EditFrame that does not return anything
+D:/CBprojects/WiX_Edit/WiX_EditMain.cpp:139:warning: found documented return type for WiX_EditFrame::WiX_EditFrame that does not return anything
+D:/CBprojects/WiX_Edit/WiX_EditMain.cpp:148:warning: found documented return type for WiX_EditFrame::~WiX_EditFrame that does not return anything
